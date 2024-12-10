@@ -12,34 +12,54 @@ Pandas — это библиотека Python, предназначенная д
    Series — это одномерная структура данных, похожая на массив, но с индексами.
    
 **Пример:**
+
 *import pandas as pd*
 
 *data = [10, 20, 30, 40]*
+
 *series = pd.Series(data, index=['a', 'b', 'c', 'd'])*
+
 *print(series)*
 
 <ins>Вывод:</ins>
+
 *a    10*
+
 *b    20*
+
 *c    30*
-d    40*
+
+*d    40*
+
 *dtype: int64*
+
 Здесь a, b, c, d — это индексы, а 10, 20, 30, 40 — значения.
+
 ## 2. DataFrame
 DataFrame — это двумерная таблица данных с индексами строк и колонок.
 
 **Пример:**
+
 *data = {'Name': ['Alice', 'Bob', 'Charlie'],*
+
 `    `*'Age': [25, 30, 35],*
+
 `    `*'Salary': [50000, 60000, 70000]}*
+
 *df = pd.DataFrame(data)*
+
 *print(df)*
 
-<ins>Вывод:</ins> \n
-	Name Age Salary \n
-0   Alice   25   50000 \n
-1     Bob   30   60000 \n
+<ins>Вывод:</ins>
+
+	Name Age Salary
+
+0   Alice   25   50000
+
+1     Bob   30   60000
+
 2  Charlie   35   70000
+
 ### 2.1 Создание DataFrame из разных источников
 #### 1. Из словаря:
 *data = {'Column1': [1, 2, 3], 'Column2': [4, 5, 6]}* \n
