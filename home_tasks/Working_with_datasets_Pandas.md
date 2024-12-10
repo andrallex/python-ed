@@ -35,14 +35,14 @@ DataFrame — это двумерная таблица данных с инде�
 *df = pd.DataFrame(data)*
 *print(df)*
 
-<ins>Вывод:</ins>
-	Name Age Salary
-0   Alice   25   50000
-1     Bob   30   60000
+<ins>Вывод:</ins> \n
+	Name Age Salary \n
+0   Alice   25   50000 \n
+1     Bob   30   60000 \n
 2  Charlie   35   70000
 ### 2.1 Создание DataFrame из разных источников
 #### 1. Из словаря:
-*data = {'Column1': [1, 2, 3], 'Column2': [4, 5, 6]}*
+*data = {'Column1': [1, 2, 3], 'Column2': [4, 5, 6]}* \n
 *df = pd.DataFrame(data)*
 *print(df)*
 #### 2. Из списка списков:
