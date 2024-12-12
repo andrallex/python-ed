@@ -8,17 +8,18 @@ print('The list of words: ', words)
 
 # 1) without using ngrams
 odd_index = [i for i, x in enumerate(words) if i % 2 == 1]
-list_of_tuples = []
+list_of_tupples = []
 for i in odd_index:
-    list_of_tuples.append((words[i-1], words[i]))
     if i < len(words) - 1:
-        list_of_tuples.append((words[i], words[i+1]))
+        list_of_tupples.append((words[i-1], words[i], words[i+1]))
+    if i < len(words) - 2:
+        list_of_tupples.append((words[i], words[i+1], words[i+2]))
         
-print('The list of tuples without using ngrams: ', list_of_tuples)        
+print('The list of tuples without using ngrams: ', list_of_tupples)        
         
 # 2) using ngrams        
-bigrams = list(ngrams(words, 2))
-print('The list of tuples with bigrams: ', bigrams)
+trigrams = list(ngrams(words, 3))
+print('The list of tuples with trigrams: ', trigrams)
 
     
 
