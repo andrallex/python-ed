@@ -17,14 +17,11 @@ morph_tagger = NewsMorphTagger(emb)
 syntax_parser = NewsSyntaxParser(emb)
 
 doc = Doc(text)
-
 doc.segment(segmenter)
 doc.tag_morph(morph_tagger)
 doc.parse_syntax(syntax_parser)
 
 sent = doc.sents[0]
 sent.morph.print()
-    
-
 sent.syntax.print()
         
