@@ -14,7 +14,6 @@ def prepare_text(text: str) -> list:
     return re.findall(r'\w+', text.lower())
 
 
-
  
 
 
