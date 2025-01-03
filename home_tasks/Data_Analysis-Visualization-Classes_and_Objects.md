@@ -25,37 +25,28 @@ seaborn.
 class Product:
 
     def __init__(self, name, price, quantity):
-
         self.name = name # Свойство: название
-
         self.price = price # Свойство: цена*
-
         self.quantity = quantity # Свойство: количество*
 
+
     def update_quantity(self, amount):
-
     #*"""Обновить количество товара."""*
-
         self.quantity += amount
 
+
     def total_cost(self):
-
     #*"""Вычислить общую стоимость товара на складе."""*
-
         return self.price * self.quantity
 
-# Создание объектов*
 
+#Создание объектов
 product1 = Product("Laptop", 1500, 5)
-
 product2 = Product("Smartphone", 800, 10)
 
 # Взаимодействие с объектами*
-
 print(f"Общая стоимость {product1.name}: {product1.total_cost()}") #7500*
-
 product1.update_quantity(-1) # Продажа одного товара*
-
 print(f"Обновленное количество {product1.name}: {product1.quantity}")# 4*
 ```
 
@@ -111,9 +102,11 @@ class Patient:
         self.birth_year = birth_year # Год рождения*
         self.gender = gender # Пол пациента*
 
+
     def age(self, current_year):
     #*"""Вычислить возраст пациента на основе текущего года."""*
         return current_year - self.birth_year
+
 
     def __str__(self):
     #*"""Возвращает строковое представление объекта."""*
@@ -145,17 +138,20 @@ class PatientData:
     def __init__(self):
         self.patients = [] # Список пациентов*
 
+
     def add_patient(self, patient):
-#*"""Добавить пациента в список."""*
+    #*"""Добавить пациента в список."""
         self.patients.append(patient)
 
+
     def average_age(self, current_year):
-#*"""Вычислить средний возраст всех пациентов."""*
+    #*"""Вычислить средний возраст всех пациентов."""
         total_age = sum([patient.age(current_year) for patient in self.patients])
         return total_age / len(self.patients)
 
+
     def gender_distribution(self):
-#*"""Подсчитать распределение по полу."""*
+    #*"""Подсчитать распределение по полу."""
         male = sum([1 for patient in self.patients if patient.gender == "мужчина"])
         female = len(self.patients) - male
         return {"мужчина": male, "женщина": female}
@@ -215,53 +211,39 @@ print(f"Распределение по полу: {patient_data.gender_distribut
 ```
 import matplotlib.pyplot as plt
 
+
 class DataVisualizer:
 
     def __init__(self, data: list):
-
         self.data = data # Данные, которые будем визуализировать
 
+
     def plot_histogram(self, bins=10):
-
     #*"""Построить гистограмму."""*
-
         plt.hist(self.data, bins=bins, edgecolor='black')
-
         plt.title('Гистограмма данных')
-
         plt.xlabel('Значения')
-
         plt.ylabel('Частота')
-
         plt.show()
   
 
     def plot_line(self, x, y):
-
     #*"""Построить линейный график."""
-
         plt.plot(x, y, marker='o', color='b')
-
         plt.title('Линейный график')
-
         plt.xlabel('X')
-
         plt.ylabel('Y')
-
         plt.show()
+
 
     def plot_scatter(self, x, y):
-
     #*"""Построить диаграмму рассеяния."""*
         plt.scatter(x, y, color='r')
-  
-        plt.title('Диаграмма рассеяния')
-
+        plt.title('Диаграмма рассеяния')
         plt.xlabel('X')
-
         plt.ylabel('Y')
-
         plt.show()
+
 
 if __name__ == "__main__":
     #Пример данных
@@ -275,7 +257,6 @@ if __name__ == "__main__":
 
     #Построить график функции
     x = [1,2,3,4,5]
-
     y = [2,4,6,8,10]
 
     #visualizer.plot_line(x, y)
@@ -310,48 +291,37 @@ if __name__ == "__main__":
 import seaborn as sns
 import numpy as np
 
+
 class ExtendedDataVisualizer(DataVisualizer):
 
     def __init__(self, data):
-
         super().__init__(data) #Наследуем от DataVisualizer*
 
 
     def plot_boxplot(self):
-
      #*"""Построить боксплот."""*
         sns.boxplot(data=self.data)
-
         plt.title('Боксплот данных')
-
         plt.show()
 
 
     def plot_heatmap(self, matrix):
-
     #"""Построить тепловую карту."""*
         sns.heatmap(matrix, annot=True, cmap='coolwarm')
-
         plt.title('Тепловая карта')
-
         plt.show()
 
 #Пример данных*
-
 data = np.random.randn(100)
 
 #Создание объекта для расширенной визуализации*
-
 extended_visualizer = ExtendedDataVisualizer(data)
 
 #Построение боксплота*
-
 extended_visualizer.plot_boxplot()
 
 #Пример для тепловой карты*
-
 matrix = np.random.rand(10, 10)
-
 extended_visualizer.plot_heatmap(matrix)
 ```
 
@@ -396,22 +366,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 class SalesData:
 
     def __init__(self, data):
-
         self.data = pd.DataFrame(data) #Инициализируем данные как DataFrame
-        
         self.processed_data = None
   
 
     def clean_data(self):
     #"""Очистка данных: удаление пропущенных значений."""
         self.data.dropna(inplace=True)
-
     #"""Добавление нового столбца для общей стоимости товаров."""
         self.data['TotalSales'] = self.data['Quantity']
-
         self.data['Price']
  
 
@@ -422,49 +389,33 @@ class SalesData:
 
     def plot_sales_distribution(self):
     #"""Построить распределение продаж."""
-
         plt.figure(figsize=(10, 6))
-
         sns.histplot(self.data['TotalSales'], bins=20, kde=True)
-
         plt.title('Распределение продаж')
-
         plt.xlabel('Общая стоимость продаж')
-
         plt.ylabel('Частота')
-
         plt.show()
 
 # Пример данных о продажах
-
 data = {
-
 'Product': ['Product A', 'Product B', 'Product C', 'Product D','Product E'],
-
 'Quantity': [100, 150, 200, 250, 300],
-
 'Price': [10, 15, 20, 25, 30]
-
 }
 
 # Создание объекта класса SalesData
-
 sales_data = SalesData(data)
 
 # Очистка данных
-
 sales_data.clean_data()
 
 # Расчёт общей стоимости продаж
-
 #sales_data.calculate_total_sales()
 
 # Описательная статистика
-
 print(sales_data.summary_statistics())
 
 # Визуализация распределения продаж
-
 sales_data.plot_sales_distribution()
 ```
 
@@ -502,64 +453,42 @@ sales_data.plot_sales_distribution()
 работы с несколькими файлами.
 ```
 import pandas as pd
-
 import seaborn as sns
-
 import matplotlib as plt
 
 
 class MultiSourceSalesData:
 
     def __init__(self, *files):
-
         self.files = files #Множество файлов для обработки
-
         self.data = pd.DataFrame()
 
 
     def load_data(self):
-
 	#"""Загрузить данные из нескольких файлов CSV."""
-
         for file in self.files:
-
             df = pd.read_csv(file)
-
             self.data = pd.concat([self.data, df], ignore_index=True)
   
 
     def clean_and_process_data(self):
-
     #"""Очистка и обработка данных."""
-
         self.data.dropna(inplace=True)
-
         self.data['TotalSales'] = self.data['Quantity']
-
         self.data['Price']
-
   
 
     def visualize_sales_by_product(self):
-
     #"""Группировка данных по продуктам и визуализация."""
-
         product_sales = self.data.groupby('Product')['TotalSales'].sum().reset_index()
-
         sns.barplot(x='Product', y='TotalSales', data=product_sales)
-
         plt.title('Общая стоимость продаж по продуктам')
-
 		plt.show()
 
 #Пример использования
-
 multi_source_data = MultiSourceSalesData('sales\_data1.csv', 'sales\_data2.csv')
-
 multi_source_data.load_data()
-
 multi_source_data.clean_and_process_data()
-
 multi_source_data.visualize_sales_by_product()
 ```
 
