@@ -30,8 +30,8 @@ print('The dictionary: ', word_dict)
 
 # Generate a random text        
 results = ["извлекать"]
-for _ in range(100):
-    possible_list = word_dict.get(results[-1],[])
+for i in range(10):
+    possible_list = word_dict.get(results[i],[])
     if not possible_list:
         break
     next_word = rd.choice(possible_list)
