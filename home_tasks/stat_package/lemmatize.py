@@ -1,5 +1,6 @@
 import spacy
 
+
 # Lemmatize the list of words
 def lemmatize_words(list_of_words_prepared: list) -> list:
 
